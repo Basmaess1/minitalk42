@@ -28,6 +28,11 @@ static int	check_pid(char *str)
 		}
 		pid = pid * 10 + (str[i++] - 48);
 	}
+	if (kill(pid, 0) == -1)
+	{
+		ft_printf("Error: Invalid or non-existent PID!\n");
+		exit(1);
+	}
 	return (pid);
 }
 
